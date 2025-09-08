@@ -8,6 +8,8 @@ def calcular_total(productos):
     tasa_iva = 0.19
     for producto in productos:
         subtotal += producto["precio"] * producto["cantidad"]
+    if subtotal > 100000:
+        subtotal *= 0.9  # Aplicar descuento del 10%
     iva = subtotal * tasa_iva
     total = subtotal + iva
     return subtotal, iva, total
@@ -16,3 +18,4 @@ subtotal, iva, total = calcular_total(productos)
 print(f"Subtotal: {subtotal}")
 print(f"IVA: {iva}")
 print(f"Total: {total}")
+
