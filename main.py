@@ -21,7 +21,23 @@ def calcular_total(productos, cliente_frecuente=True):
     return subtotal, iva, total
 
 subtotal, iva, total = calcular_total(productos)
-print(f"Subtotal: {subtotal:.2f}")
-print(f"IVA: {iva:.2f}")
-print(f"Total: {total:.2f}")
 
+print("\nREPORTE DE VENTA\n")
+print(
+    "Producto".ljust(15) +
+    "Cantidad".ljust(10) +
+    "Precio Unitario".ljust(17) +
+    "Total".ljust(10) + "\n"
+)
+for p in productos:
+    total_prod = p["precio"] * p["cantidad"]
+    print(
+        p["nombre"].ljust(15) +
+        str(p["cantidad"]).ljust(10) +
+        str(p["precio"]).ljust(17) +
+        str(total_prod).ljust(10) + "\n"
+    )
+
+print(f"Subtotal: {subtotal}\n")
+print(f"IVA (19%): {iva}\n")
+print(f"TOTAL: {total}\n")
