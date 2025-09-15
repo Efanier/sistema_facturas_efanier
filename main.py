@@ -5,7 +5,7 @@ productos = [{"nombre": "Resma", "precio": 25000, "cantidad": 2},
 
 def calcular_total(productos):
     subtotal = 0
-    tasa_iva = 0.19
+    tasa_iva = 0.16
     for producto in productos:
         subtotal += producto["precio"] * producto["cantidad"]
     if subtotal > 100000:
